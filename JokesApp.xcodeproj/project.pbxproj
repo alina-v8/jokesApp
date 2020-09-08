@@ -17,6 +17,7 @@
 		C74EC90525058D2100134E1E /* JokeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90425058D2100134E1E /* JokeList.swift */; };
 		C74EC9082506D7AE00134E1E /* JokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC9062506D7AE00134E1E /* JokeCell.swift */; };
 		C74EC9092506D7AE00134E1E /* JokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EC9072506D7AE00134E1E /* JokeCell.xib */; };
+		C74EC90B2508140200134E1E /* FavoriteJokes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90A2508140200134E1E /* FavoriteJokes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C74EC90425058D2100134E1E /* JokeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeList.swift; sourceTree = "<group>"; };
 		C74EC9062506D7AE00134E1E /* JokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCell.swift; sourceTree = "<group>"; };
 		C74EC9072506D7AE00134E1E /* JokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JokeCell.xib; sourceTree = "<group>"; };
+		C74EC90A2508140200134E1E /* FavoriteJokes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteJokes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				C74EC8FC2505836200134E1E /* JokesVC.swift */,
 				C74EC90225058C3900134E1E /* Joke.swift */,
 				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
+				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
 				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
 				C74EC90425058D2100134E1E /* JokeList.swift */,
 				C74EC8F125056D5800134E1E /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				C74EC8E925056D5300134E1E /* AppDelegate.swift in Sources */,
 				C74EC90325058C3900134E1E /* Joke.swift in Sources */,
 				C74EC9082506D7AE00134E1E /* JokeCell.swift in Sources */,
+				C74EC90B2508140200134E1E /* FavoriteJokes.swift in Sources */,
 				C74EC8FD2505836200134E1E /* JokesVC.swift in Sources */,
 				C74EC90525058D2100134E1E /* JokeList.swift in Sources */,
 				C74EC8EB25056D5300134E1E /* SceneDelegate.swift in Sources */,

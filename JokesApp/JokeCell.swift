@@ -8,6 +8,16 @@
 
 import UIKit
 
+//BOSS 
+
+protocol ShareButtonDelegate {
+    func didTapShare(jokeText: String)
+}
+
+protocol LikeButtonDelegate {
+    func didTapLike (savedJoke: String)
+}
+
 class JokeCell: UITableViewCell {
     
     
@@ -20,6 +30,9 @@ class JokeCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var cell: UIView!
+    
+    var shareDelegate: ShareButtonDelegate?
+    var likeDelegate: LikeButtonDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,11 +63,14 @@ class JokeCell: UITableViewCell {
     
     @IBAction func shareButtonTapped (_ sender: UIButton) {
         
+        shareDelegate?.didTapShare(jokeText: jokeBody.text!)
         print ("share")
         
     }
     @IBAction func likeButtonTapped (_ sender: UIButton) {
         
+        likeDelegate?.didTapLike(savedJoke: jokeBody.text!)
+     
         print ("like")
     }
 }

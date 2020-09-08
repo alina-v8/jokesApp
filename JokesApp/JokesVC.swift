@@ -8,9 +8,13 @@
 
 import UIKit
 
+// INTERN
+
 class JokesVC: UIViewController {
     
     var jokes = [Joke]()
+    var likedJokes = [String]()
+
     
     @IBOutlet weak var jokesTableView: UITableView!
     
@@ -49,9 +53,46 @@ class JokesVC: UIViewController {
         }
     }
 
+    
+
    
     
 }
+
+extension JokesVC: ShareButtonDelegate {
+    
+    func didTapShare(jokeText: String) {
+//        let alertTitle = "Share this Joke?"
+        let message = jokeText
+            let vc = UIActivityViewController(activityItems: [message], applicationActivities:  [])
+            present(vc, animated: true)
+  
+        
+        }
+    
+//        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+//        present (alert, animated: true, completion: nil)
+//    }
+    
+    
+}
+
+
+extension JokesVC: LikeButtonDelegate {
+    func didTapLike(savedJoke: String) {
+        
+        likedJokes.append(savedJoke)
+        print (likedJokes)
+        
+        
+    }
+    
+    
+    
+    
+}
+
 
 extension JokesVC: UITableViewDataSource, UITableViewDelegate {
     
@@ -62,6 +103,8 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = jokesTableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
+        cell.shareDelegate = self
+        cell.likeDelegate = self
         let ourJoke = jokes[indexPath.row]
 //        cell.textLabel?.text = ourJoke.joke
         
@@ -82,7 +125,11 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
             return 160
         }
     
-
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let myJoke = jokes[indexPath.row]
+//        print ("You tapped: \(myJoke)")
+//    }
    
     
 }

@@ -9,56 +9,85 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JokeCell" rowHeight="158" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-i7-Jjw" customClass="JokeCell" customModule="JokesApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="JokeCell" rowHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-i7-Jjw" customClass="JokeCell" customModule="JokesApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="364" height="158"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="364" height="158"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqC-Ac-318" userLabel="Background">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0x-41-z7b">
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="158"/>
+                        <color key="backgroundColor" red="0.22352941179999999" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqC-Ac-318" userLabel="Background">
                         <rect key="frame" x="10" y="10" width="344" height="138"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-Xd-7Lv">
-                                <rect key="frame" x="157" y="91" width="79" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.21176470588235294" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleColor" red="1" green="0.69803921570000005" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tgS-c6-GEf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1b4-nk-Bak">
-                                <rect key="frame" x="247" y="91" width="79" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Lr-pp-GPR">
+                                <rect key="frame" x="247" y="98" width="79" height="30"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="pS6-Xf-l9O"/>
+                                    <constraint firstAttribute="height" constant="30" id="yl3-8l-kxr"/>
+                                </constraints>
                                 <state key="normal" title="Like">
                                     <color key="titleColor" red="1" green="0.69803921570000005" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hWe-k0-lAs"/>
+                                    <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Kzh-pU-kR1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Joke Text" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-Yi-Idw">
-                                <rect key="frame" x="14" y="16" width="315" height="67"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FRf-BA-SJe">
+                                <rect key="frame" x="157" y="98" width="79" height="30"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xf7-Ex-I2Y"/>
+                                    <constraint firstAttribute="width" constant="79" id="uVX-cA-Wt0"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="1" green="0.69803921570000005" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0xk-oY-I2j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDc-rV-yI9">
+                                <rect key="frame" x="14" y="8" width="316" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.26274509800000001" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8Lr-pp-GPR" secondAttribute="bottom" constant="10" id="0Fj-fq-jpV"/>
+                            <constraint firstAttribute="bottom" secondItem="FRf-BA-SJe" secondAttribute="bottom" constant="10" id="1G3-as-r56"/>
+                            <constraint firstItem="MDc-rV-yI9" firstAttribute="leading" secondItem="YqC-Ac-318" secondAttribute="leading" constant="14" id="Qip-TX-TDo"/>
+                            <constraint firstAttribute="trailing" secondItem="MDc-rV-yI9" secondAttribute="trailing" constant="14" id="THI-VT-C8J"/>
+                            <constraint firstItem="8Lr-pp-GPR" firstAttribute="leading" secondItem="FRf-BA-SJe" secondAttribute="trailing" constant="11" id="X36-qf-t7K"/>
+                            <constraint firstAttribute="trailing" secondItem="MDc-rV-yI9" secondAttribute="trailing" constant="14" id="abL-9R-cTM"/>
+                            <constraint firstItem="MDc-rV-yI9" firstAttribute="top" secondItem="YqC-Ac-318" secondAttribute="top" constant="8" id="cAc-un-Ur7"/>
+                            <constraint firstAttribute="trailing" secondItem="8Lr-pp-GPR" secondAttribute="trailing" constant="18" id="oKP-1t-QPF"/>
+                            <constraint firstItem="MDc-rV-yI9" firstAttribute="leading" secondItem="YqC-Ac-318" secondAttribute="leading" constant="14" id="oPk-NS-B7y"/>
+                            <constraint firstItem="8Lr-pp-GPR" firstAttribute="top" secondItem="MDc-rV-yI9" secondAttribute="bottom" constant="12" id="p8D-j2-ARi"/>
+                        </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" red="0.22352941179999999" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="G0x-41-z7b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4Tj-Tp-t9m"/>
+                    <constraint firstItem="YqC-Ac-318" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4bu-mu-Bzt"/>
+                    <constraint firstItem="YqC-Ac-318" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7Cn-nX-fLi"/>
+                    <constraint firstAttribute="trailing" secondItem="G0x-41-z7b" secondAttribute="trailing" id="9Ae-Ab-L4K"/>
+                    <constraint firstItem="YqC-Ac-318" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DsE-85-Dej"/>
+                    <constraint firstAttribute="bottom" secondItem="G0x-41-z7b" secondAttribute="bottom" id="OxN-DK-kau"/>
+                    <constraint firstItem="G0x-41-z7b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VH4-GR-56t"/>
+                    <constraint firstItem="YqC-Ac-318" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qEA-kl-UIP"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="jokeBody" destination="ca8-Yi-Idw" id="pEU-de-9pc"/>
-                <outlet property="likeButton" destination="1b4-nk-Bak" id="12Z-hq-Rql"/>
-                <outlet property="shareButton" destination="ZTg-Xd-7Lv" id="S5j-dn-VYa"/>
+                <outlet property="cell" destination="H2p-sc-9uM" id="GzU-dy-1QC"/>
+                <outlet property="jokeBody" destination="MDc-rV-yI9" id="GVO-xh-SOO"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="154.6875"/>
         </tableViewCell>

@@ -17,13 +17,12 @@ class JokesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        jokesTableView.backgroundColor = .clear
 
         jokesTableView.register(JokeCell.nib(), forCellReuseIdentifier: "JokeCell")
-        jokesTableView.estimatedRowHeight = 158
+        jokesTableView.estimatedRowHeight = 160
         jokesTableView.rowHeight = UITableView.automaticDimension
-        
+
         jokesTableView.dataSource = self
         jokesTableView.delegate = self
         
@@ -62,25 +61,26 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = jokesTableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
         let ourJoke = jokes[indexPath.row]
-        cell.textLabel?.text = ourJoke.joke
+//        cell.textLabel?.text = ourJoke.joke
+        
+        cell.configure(with: ourJoke.joke)
         return cell
     }
  
     
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UITableView.automaticDimension
-        } else {
-            return 150
+        
+    
+            return 160
         }
-    }
+    
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UITableView.automaticDimension
-        } else {
-            return 150
+        
+            return 160
         }
-    }
-}
+    
 
+   
+    
+}

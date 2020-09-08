@@ -20,8 +20,10 @@ class JokesVC: UIViewController {
         jokesTableView.backgroundColor = .clear
 
         jokesTableView.register(JokeCell.nib(), forCellReuseIdentifier: "JokeCell")
-        jokesTableView.estimatedRowHeight = 160
         jokesTableView.rowHeight = UITableView.automaticDimension
+        jokesTableView.estimatedRowHeight = 160
+
+      
 
         jokesTableView.dataSource = self
         jokesTableView.delegate = self
@@ -71,7 +73,7 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
     
-            return 160
+            return UITableView.automaticDimension
         }
     
 

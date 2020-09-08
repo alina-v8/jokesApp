@@ -29,6 +29,7 @@ class JokeCell: UITableViewCell {
     }
     
     
+    
     public func configure (with jText: String) {
         
         jokeBody.text = jText

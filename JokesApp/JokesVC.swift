@@ -16,10 +16,16 @@ class JokesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
 
-
-        jokesTableView.delegate = self
+        jokesTableView.register(JokeCell.nib(), forCellReuseIdentifier: "JokeCell")
+        jokesTableView.estimatedRowHeight = 158
+        jokesTableView.rowHeight = UITableView.automaticDimension
+        
         jokesTableView.dataSource = self
+        jokesTableView.delegate = self
         
         let urlString = "https://api.icndb.com/jokes/random/100"
 
@@ -46,7 +52,7 @@ class JokesVC: UIViewController {
     
 }
 
-extension JokesVC: UITableViewDelegate, UITableViewDataSource {
+extension JokesVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,15 +60,27 @@ extension JokesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = jokesTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = jokesTableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
         let ourJoke = jokes[indexPath.row]
         cell.textLabel?.text = ourJoke.joke
         return cell
     }
+ 
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          print ("You tapped me")
-      }
-    
+   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 150
+        }
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 150
+        }
+    }
 }
 

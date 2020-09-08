@@ -18,6 +18,8 @@
 		C74EC9082506D7AE00134E1E /* JokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC9062506D7AE00134E1E /* JokeCell.swift */; };
 		C74EC9092506D7AE00134E1E /* JokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EC9072506D7AE00134E1E /* JokeCell.xib */; };
 		C74EC90B2508140200134E1E /* FavoriteJokes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90A2508140200134E1E /* FavoriteJokes.swift */; };
+		C74EC90E2508230E00134E1E /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90C2508230E00134E1E /* FavoritesCell.swift */; };
+		C74EC90F2508230E00134E1E /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EC90D2508230E00134E1E /* FavoritesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C74EC9062506D7AE00134E1E /* JokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCell.swift; sourceTree = "<group>"; };
 		C74EC9072506D7AE00134E1E /* JokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JokeCell.xib; sourceTree = "<group>"; };
 		C74EC90A2508140200134E1E /* FavoriteJokes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteJokes.swift; sourceTree = "<group>"; };
+		C74EC90C2508230E00134E1E /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		C74EC90D2508230E00134E1E /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +75,12 @@
 				C74EC8EE25056D5300134E1E /* Main.storyboard */,
 				C74EC8FC2505836200134E1E /* JokesVC.swift */,
 				C74EC90225058C3900134E1E /* Joke.swift */,
-				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
-				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
-				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
 				C74EC90425058D2100134E1E /* JokeList.swift */,
+				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
+				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
+				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
+				C74EC90C2508230E00134E1E /* FavoritesCell.swift */,
+				C74EC90D2508230E00134E1E /* FavoritesCell.xib */,
 				C74EC8F125056D5800134E1E /* Assets.xcassets */,
 				C74EC8F325056D5800134E1E /* LaunchScreen.storyboard */,
 				C74EC8F625056D5800134E1E /* Info.plist */,
@@ -144,6 +150,7 @@
 				C74EC8F225056D5800134E1E /* Assets.xcassets in Resources */,
 				C74EC9092506D7AE00134E1E /* JokeCell.xib in Resources */,
 				C74EC8F025056D5300134E1E /* Main.storyboard in Resources */,
+				C74EC90F2508230E00134E1E /* FavoritesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C74EC8E925056D5300134E1E /* AppDelegate.swift in Sources */,
+				C74EC90E2508230E00134E1E /* FavoritesCell.swift in Sources */,
 				C74EC90325058C3900134E1E /* Joke.swift in Sources */,
 				C74EC9082506D7AE00134E1E /* JokeCell.swift in Sources */,
 				C74EC90B2508140200134E1E /* FavoriteJokes.swift in Sources */,

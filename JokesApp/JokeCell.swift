@@ -22,14 +22,16 @@ class JokeCell: UITableViewCell {
     
     
     
-    override func prepareForReuse() {
-           
-    }
+    //    override func prepareForReuse() {
+    //
+    //    }
     
+    
+    
+    @IBOutlet weak var background: UIView!
     @IBOutlet weak var jokeBody: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var cell: UIView!
     
     var shareDelegate: ShareButtonDelegate?
     var likeDelegate: LikeButtonDelegate?
@@ -38,7 +40,13 @@ class JokeCell: UITableViewCell {
         super.awakeFromNib()
         
         self.contentView.isUserInteractionEnabled = true
-            
+        
+
+        
+        likeButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
+        shareButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
+        
+        background.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 2, blur: 7, spread: 0)
     }
     
     
@@ -47,30 +55,49 @@ class JokeCell: UITableViewCell {
         
         jokeBody.text = jText
     }
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//        
-//        
-//    }
-//    
+
     
     static func nib() -> UINib {
-
+        
         return UINib(nibName: "JokeCell", bundle: nil)
         
-    
+        
     }
     
     @IBAction func shareButtonTapped (_ sender: UIButton) {
         
         shareDelegate?.didTapShare(jokeText: jokeBody.text!)
-        print ("share")
         
     }
     @IBAction func likeButtonTapped (_ sender: UIButton) {
         
         likeDelegate?.didTapLike(savedJoke: jokeBody.text!)
-     
-        print ("like")
+        
+    }
+}
+
+//Extension to add shadows used in Sketch
+
+
+extension CALayer {
+    func applySketchShadow(
+        color: UIColor = .black,
+        alpha: Float = 0.5,
+        x: CGFloat = 0,
+        y: CGFloat = 2,
+        blur: CGFloat = 4,
+        spread: CGFloat = 0)
+    {
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+        if spread == 0 {
+            shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            shadowPath = UIBezierPath(rect: rect).cgPath
+        }
     }
 }

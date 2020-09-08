@@ -10,10 +10,12 @@ import UIKit
 
 // INTERN
 
+var likedJokes = [String]()
+
+
 class JokesVC: UIViewController {
     
     var jokes = [Joke]()
-    var likedJokes = [String]()
 
     
     @IBOutlet weak var jokesTableView: UITableView!
@@ -83,7 +85,6 @@ extension JokesVC: LikeButtonDelegate {
     func didTapLike(savedJoke: String) {
         
         likedJokes.append(savedJoke)
-        print (likedJokes)
         
         
     }
@@ -105,10 +106,8 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
         let cell = jokesTableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
         cell.shareDelegate = self
         cell.likeDelegate = self
-        let ourJoke = jokes[indexPath.row]
-//        cell.textLabel?.text = ourJoke.joke
-        
-        cell.configure(with: ourJoke.joke)
+        let randomJoke = jokes[indexPath.row]
+        cell.configure(with: randomJoke.joke)
         return cell
     }
  

@@ -13,6 +13,8 @@ class FavoriteJokes: UIViewController {
     
     @IBOutlet weak var favoritesTableView: UITableView!
     
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,10 +24,34 @@ class FavoriteJokes: UIViewController {
         
         favoritesTableView.register(FavoritesCell.nib(), forCellReuseIdentifier: "FavoritesCell")
         favoritesTableView.backgroundColor = .clear
+        favoritesTableView.showsVerticalScrollIndicator = false
+        
+        addButton.layer.cornerRadius = addButton.frame.height / 2
+        addButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 5, blur: 8, spread: 0)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         favoritesTableView.reloadData()
+    }
+    
+    
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        
+        addNewJoke()
+    }
+    
+    func addNewJoke() {
+        
+        performSegue(withIdentifier: "goToAddScreen", sender: self)
+//
+//        likedJokes.append("hi there")
+//        let indexPath = IndexPath(row: likedJokes.count - 1, section: 0)
+//
+//        favoritesTableView.beginUpdates()
+//        favoritesTableView.insertRows(at: [indexPath], with: .automatic)
+//        favoritesTableView.endUpdates()
+        
     }
 }
 

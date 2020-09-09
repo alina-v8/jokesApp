@@ -22,11 +22,6 @@ class JokeCell: UITableViewCell {
     
     
     
-    //    override func prepareForReuse() {
-    //
-    //    }
-    
-    
     
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var jokeBody: UILabel!

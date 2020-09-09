@@ -20,6 +20,7 @@
 		C74EC90B2508140200134E1E /* FavoriteJokes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90A2508140200134E1E /* FavoriteJokes.swift */; };
 		C74EC90E2508230E00134E1E /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC90C2508230E00134E1E /* FavoritesCell.swift */; };
 		C74EC90F2508230E00134E1E /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EC90D2508230E00134E1E /* FavoritesCell.xib */; };
+		C74EC91125085B9D00134E1E /* AddJokeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC91025085B9D00134E1E /* AddJokeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C74EC90A2508140200134E1E /* FavoriteJokes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteJokes.swift; sourceTree = "<group>"; };
 		C74EC90C2508230E00134E1E /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		C74EC90D2508230E00134E1E /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
+		C74EC91025085B9D00134E1E /* AddJokeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJokeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C74EC90225058C3900134E1E /* Joke.swift */,
 				C74EC90425058D2100134E1E /* JokeList.swift */,
 				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
+				C74EC91025085B9D00134E1E /* AddJokeVC.swift */,
 				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
 				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
 				C74EC90C2508230E00134E1E /* FavoritesCell.swift */,
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74EC91125085B9D00134E1E /* AddJokeVC.swift in Sources */,
 				C74EC8E925056D5300134E1E /* AppDelegate.swift in Sources */,
 				C74EC90E2508230E00134E1E /* FavoritesCell.swift in Sources */,
 				C74EC90325058C3900134E1E /* Joke.swift in Sources */,

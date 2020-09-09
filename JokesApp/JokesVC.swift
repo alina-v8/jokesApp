@@ -24,6 +24,7 @@ class JokesVC: UIViewController {
         super.viewDidLoad()
         
         jokesTableView.backgroundColor = .clear
+        jokesTableView.showsVerticalScrollIndicator = false
 
         jokesTableView.register(JokeCell.nib(), forCellReuseIdentifier: "JokeCell")
         jokesTableView.rowHeight = UITableView.automaticDimension
@@ -34,6 +35,13 @@ class JokesVC: UIViewController {
         jokesTableView.dataSource = self
         jokesTableView.delegate = self
         
+        apiRequest()
+        
+    }
+    
+
+    
+    func apiRequest () {
         let urlString = "https://api.icndb.com/jokes/random/100"
 
         if let url = URL(string: urlString) {
@@ -43,7 +51,6 @@ class JokesVC: UIViewController {
             }
         }
     }
-    
     
     func parse(json: Data) {
         
@@ -56,8 +63,18 @@ class JokesVC: UIViewController {
     }
 
     
-
+    //Shake gesture
+    
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            
+            apiRequest()
+        }
+    }
     
 }
 
@@ -84,7 +101,14 @@ extension JokesVC: ShareButtonDelegate {
 extension JokesVC: LikeButtonDelegate {
     func didTapLike(savedJoke: String) {
         
+        if likedJokes.contains(savedJoke) {
+            print ("it's aldeady added")
+            return
+            
+        } else {
+        
         likedJokes.append(savedJoke)
+        }
         
         
     }

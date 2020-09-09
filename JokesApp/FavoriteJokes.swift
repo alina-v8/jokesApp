@@ -8,8 +8,8 @@
 
 import UIKit
 
+
 class FavoriteJokes: UIViewController {
-    
     
     @IBOutlet weak var favoritesTableView: UITableView!
     
@@ -18,6 +18,7 @@ class FavoriteJokes: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        favoritesTableView.reloadData()
         
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
@@ -32,28 +33,24 @@ class FavoriteJokes: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         favoritesTableView.reloadData()
     }
     
     
+    
+    
     @IBAction func addButtonTapped(_ sender: UIButton) {
         
-        addNewJoke()
+        let addVC = storyboard?.instantiateViewController(withIdentifier: "addJokeScreen") as! AddJokeVC
+        addVC.jokeDelegate = self
+        present(addVC, animated: true, completion: nil)
+        
     }
     
-    func addNewJoke() {
-        
-        performSegue(withIdentifier: "goToAddScreen", sender: self)
-//
-//        likedJokes.append("hi there")
-//        let indexPath = IndexPath(row: likedJokes.count - 1, section: 0)
-//
-//        favoritesTableView.beginUpdates()
-//        favoritesTableView.insertRows(at: [indexPath], with: .automatic)
-//        favoritesTableView.endUpdates()
-        
-    }
 }
+
+
 
 
 extension FavoriteJokes: UITableViewDelegate, UITableViewDataSource {
@@ -63,11 +60,33 @@ extension FavoriteJokes: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesCell
+        
         let myJokes = likedJokes[indexPath.row]
         cell.configureFav(with: myJokes)
         return cell
     }
     
+    
+}
+
+extension FavoriteJokes: UserJokeDelegate {
+    func saveButtonTapped(userJoke: String) {
+        
+        if userJoke.isEmpty == true {
+            return
+        } else {
+            
+            likedJokes.append(userJoke)
+            let indexPath = IndexPath(row: likedJokes.count - 1, section: 0)
+            
+            
+            favoritesTableView.beginUpdates()
+            favoritesTableView.insertRows(at: [indexPath], with: .automatic)
+            favoritesTableView.endUpdates()
+            
+        }
+        
+    }
     
     
     

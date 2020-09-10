@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7367E492509AC5F001DAE6D /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367E482509AC5F001DAE6D /* SettingsVC.swift */; };
 		C74EC8E925056D5300134E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC8E825056D5300134E1E /* AppDelegate.swift */; };
 		C74EC8EB25056D5300134E1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EC8EA25056D5300134E1E /* SceneDelegate.swift */; };
 		C74EC8F025056D5300134E1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74EC8EE25056D5300134E1E /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7367E482509AC5F001DAE6D /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C74EC8E525056D5300134E1E /* JokesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74EC8E825056D5300134E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C74EC8EA25056D5300134E1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				C74EC90225058C3900134E1E /* Joke.swift */,
 				C74EC90425058D2100134E1E /* JokeList.swift */,
 				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
+				C7367E482509AC5F001DAE6D /* SettingsVC.swift */,
 				C74EC91025085B9D00134E1E /* AddJokeVC.swift */,
 				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
 				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
@@ -173,6 +176,7 @@
 				C74EC8FD2505836200134E1E /* JokesVC.swift in Sources */,
 				C74EC90525058D2100134E1E /* JokeList.swift in Sources */,
 				C74EC8EB25056D5300134E1E /* SceneDelegate.swift in Sources */,
+				C7367E492509AC5F001DAE6D /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

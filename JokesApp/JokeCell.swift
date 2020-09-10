@@ -36,7 +36,7 @@ class JokeCell: UITableViewCell {
         
         self.contentView.isUserInteractionEnabled = true
         
-
+        
         
         likeButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
         shareButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
@@ -50,7 +50,7 @@ class JokeCell: UITableViewCell {
         
         jokeBody.text = jText
     }
-
+    
     
     static func nib() -> UINib {
         
@@ -61,6 +61,10 @@ class JokeCell: UITableViewCell {
     
     @IBAction func shareButtonTapped (_ sender: UIButton) {
         
+        sender.showAnimation {
+            
+        }
+        
         shareDelegate?.didTapShare(jokeText: jokeBody.text!)
         
     }
@@ -68,7 +72,13 @@ class JokeCell: UITableViewCell {
         
         likeDelegate?.didTapLike(savedJoke: jokeBody.text!)
         
+        sender.showAnimation {
+        }
+        
+        
     }
+    
+    
 }
 
 //Extension to add shadows used in Sketch
@@ -93,6 +103,30 @@ extension CALayer {
             let dx = -spread
             let rect = bounds.insetBy(dx: dx, dy: dx)
             shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
+}
+
+// Tap animation extension
+
+extension UIView {
+    func showAnimation(_ completionBlock: @escaping () -> Void) {
+        isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: { [weak self] in
+                        self?.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+        }) {  (done) in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                            self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            }) { [weak self] (_) in
+                self?.isUserInteractionEnabled = true
+                completionBlock()
+            }
         }
     }
 }

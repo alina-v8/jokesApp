@@ -8,16 +8,18 @@
 
 import UIKit
 
-// INTERN
-
+var replacedStrings = [String]()
 var likedJokes = [String]()
-
 
 class JokesVC: UIViewController {
     
     var jokes = [Joke]()
-
+    let replacementName = newName
+    let namePassed = Notification.Name(rawValue: "newCharacterName")
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     @IBOutlet weak var jokesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -37,9 +39,33 @@ class JokesVC: UIViewController {
         
         apiRequest()
         
+      createObserver()
+        
+    
+    
+    }
+    func createObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCharacterName(notification:)), name: namePassed, object: nil)
     }
     
-
+    @objc func updateCharacterName(notification: NSNotification) {
+        
+        if  likedJokes.isEmpty == true {
+                return
+            } else {
+            
+            for str in likedJokes {
+              let oneString = str.replacingOccurrences(of: "Chuck Norris", with: newName + " " + newLastName)
+                replacedStrings.append(oneString)
+                
+            }
+        }
+        print (replacedStrings)
+        
+    }
+    
+    
     
     func apiRequest () {
         let urlString = "https://api.icndb.com/jokes/random/100"
@@ -81,7 +107,6 @@ class JokesVC: UIViewController {
 extension JokesVC: ShareButtonDelegate {
     
     func didTapShare(jokeText: String) {
-//        let alertTitle = "Share this Joke?"
         let message = jokeText
             let vc = UIActivityViewController(activityItems: [message], applicationActivities:  [])
             present(vc, animated: true)
@@ -109,8 +134,7 @@ extension JokesVC: LikeButtonDelegate {
         
         likedJokes.append(savedJoke)
         }
-        
-        
+                
     }
     
     
@@ -148,11 +172,30 @@ extension JokesVC: UITableViewDataSource, UITableViewDelegate {
             return 160
         }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let myJoke = jokes[indexPath.row]
-//        print ("You tapped: \(myJoke)")
-//    }
    
     
 }
+
+    
+    extension Array where Element: Equatable {
+    func replacingMultipleOccurrences(using array: (of: Element, with: Element)...) -> Array {
+        var newArr: Array<Element> = self
+
+        for replacement in array {
+            for (index, item) in self.enumerated() {
+                if item == replacement.of {
+                    newArr[index] = replacement.with
+                }
+            }
+        }
+
+        return newArr
+      }
+    }
+    
+
+
+
+
+
+

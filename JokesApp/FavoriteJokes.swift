@@ -42,6 +42,7 @@ class FavoriteJokes: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         
+        
         let addVC = storyboard?.instantiateViewController(withIdentifier: "addJokeScreen") as! AddJokeVC
         addVC.jokeDelegate = self
         present(addVC, animated: true, completion: nil)
@@ -66,7 +67,20 @@ extension FavoriteJokes: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            likedJokes.remove(at: indexPath.row)
+            
+            favoritesTableView.beginUpdates()
+            favoritesTableView.deleteRows(at: [indexPath], with: .automatic)
+            favoritesTableView.endUpdates()
+        }
+    }
 }
 
 extension FavoriteJokes: UserJokeDelegate {

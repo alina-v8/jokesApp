@@ -9,11 +9,13 @@
 import UIKit
 
 var replacedStrings = [String]()
+var replacedJokes = [String]()
 var likedJokes = [String]()
 
 class JokesVC: UIViewController {
     
     var jokes = [Joke]()
+    var jokeStrings = ["\(Joke.self)"]
     let replacementName = newName
     let namePassed = Notification.Name(rawValue: "newCharacterName")
     
@@ -42,7 +44,6 @@ class JokesVC: UIViewController {
       createObserver()
         
     
-    
     }
     func createObserver() {
         
@@ -50,6 +51,21 @@ class JokesVC: UIViewController {
     }
     
     @objc func updateCharacterName(notification: NSNotification) {
+        
+        if  jokes.isEmpty == true {
+                    return
+                } else {
+                
+                for apiJoke in jokes {
+                  let oneJoke = apiJoke.joke.replacingOccurrences(of: "Chuck Norris", with: newName + " " + newLastName)
+                    replacedJokes.append(oneJoke)
+                    
+                }
+            
+                
+                print (replacedJokes)
+            }
+        
         
         if  likedJokes.isEmpty == true {
                 return
@@ -60,7 +76,13 @@ class JokesVC: UIViewController {
                 replacedStrings.append(oneString)
                 
             }
+            
+            
         }
+        
+  
+        
+        print (replacedJokes)
         print (replacedStrings)
         
     }
@@ -133,6 +155,8 @@ extension JokesVC: LikeButtonDelegate {
         } else {
         
         likedJokes.append(savedJoke)
+            
+            defaults.set(likedJokes, forKey: "likedJokesArray")
         }
                 
     }

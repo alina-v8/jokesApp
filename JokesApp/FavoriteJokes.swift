@@ -8,8 +8,11 @@
 
 import UIKit
 
+let defaults = UserDefaults.standard
+
 
 class FavoriteJokes: UIViewController {
+    
     
     @IBOutlet weak var favoritesTableView: UITableView!
     
@@ -17,6 +20,10 @@ class FavoriteJokes: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let likedJokesStorage = defaults.array(forKey: "likedJokesArray") as? [String] {
+            likedJokes = likedJokesStorage
+        }
         
         favoritesTableView.reloadData()
         
@@ -92,6 +99,8 @@ extension FavoriteJokes: UserJokeDelegate {
             
             likedJokes.append(userJoke)
             let indexPath = IndexPath(row: likedJokes.count - 1, section: 0)
+            
+            defaults.set(likedJokes, forKey: "likedJokesArray")
             
             
             favoritesTableView.beginUpdates()

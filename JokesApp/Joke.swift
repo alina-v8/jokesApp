@@ -11,5 +11,6 @@ import Foundation
 struct Joke: Codable {
     
     var joke: String
-    
+
 }
+

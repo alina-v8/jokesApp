@@ -10,7 +10,7 @@
         <!--Favorites-->
         <scene sceneID="Nwq-mJ-avf">
             <objects>
-                <viewController id="49G-RX-rhR" customClass="FavoriteJokes" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favoriteJokes" id="49G-RX-rhR" customClass="FavoriteJokes" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GkO-Sp-nCd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--Settings-->
         <scene sceneID="zVl-ad-ezk">
             <objects>
-                <viewController id="mdn-S7-usu" customClass="SettingsVC" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="mdn-S7-usu" customClass="SettingsVC" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="an9-C3-eAy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,7 +227,7 @@
         <!--Home-->
         <scene sceneID="YTc-b6-4GK">
             <objects>
-                <viewController id="yg2-fU-myC" customClass="JokesVC" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jokesList" id="yg2-fU-myC" customClass="JokesVC" customModule="JokesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="75u-oO-Q5E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,6 +245,10 @@
                                         <color key="textColor" red="1" green="0.69803921568627447" blue="0.035294117647058823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3f-jJ-VBn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -269,6 +273,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="85F-hN-J8z"/>
                     <connections>
                         <outlet property="jokesTableView" destination="nh9-TN-Vt6" id="uuy-jo-vTZ"/>
+                        <outlet property="noConnectionView" destination="h3f-jJ-VBn" id="gW6-DT-LzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDb-8n-dfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

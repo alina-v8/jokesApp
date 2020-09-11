@@ -8,15 +8,15 @@
 
 import UIKit
 
+var isOffline = Bool()
+
 
  var newName = String()
 var newLastName = String()
 
 
 class SettingsVC: UIViewController {
-    
-    
-    
+        
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var lastNameView: UIView!
     @IBOutlet weak var offlineView: UIView!
@@ -52,7 +52,6 @@ class SettingsVC: UIViewController {
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
         sender.showAnimation {
-            
         }
         
         newName = nameTextField.text ?? ""
@@ -60,12 +59,24 @@ class SettingsVC: UIViewController {
                 
         let name = Notification.Name(rawValue: "newCharacterName")
         NotificationCenter.default.post(name: name, object: newName)
-        dismiss(animated: true, completion: nil)
+        
+//        let dismissVC = storyboard?.instantiateViewController(withIdentifier: "favoriteJokes") as! FavoriteJokes
+//               present(dismissVC, animated: true, completion: nil)
+        
+        view.endEditing(true)
     }
     
     
     @IBAction func offlineSwitch(_ sender: UISwitch) {
+    
         
+        if sender.isOn == true {
+            
+            isOffline = true
+            
+        } else {
+           isOffline = false
+        }
     }
     
 }

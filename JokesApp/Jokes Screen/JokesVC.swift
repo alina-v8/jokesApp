@@ -43,7 +43,6 @@ class JokesVC: UIViewController {
         jokesTableView.rowHeight = UITableView.automaticDimension
         jokesTableView.estimatedRowHeight = 160
         
-        
         createObserver()
         
     }

@@ -8,8 +8,6 @@
 
 import UIKit
 
-//BOSS 
-
 protocol ShareButtonDelegate {
     func didTapShare(jokeText: String)
 }
@@ -20,54 +18,50 @@ protocol LikeButtonDelegate {
 
 class JokeCell: UITableViewCell {
     
-    
-    
-    
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var jokeBody: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     
+    
     var shareDelegate: ShareButtonDelegate?
     var likeDelegate: LikeButtonDelegate?
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.contentView.isUserInteractionEnabled = true
         
         
         
         likeButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
         shareButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 1, blur: 5, spread: 0)
-        
         background.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 2, blur: 7, spread: 0)
+        
+        
+        self.contentView.isUserInteractionEnabled = true
+        
     }
     
     
-    
-    public func configure (with jText: String) {
-        
-        jokeBody.text = jText
+    public func configure (with jokeContents: String) {
+        jokeBody.text = jokeContents
     }
     
     
     static func nib() -> UINib {
-        
         return UINib(nibName: "JokeCell", bundle: nil)
-        
-        
     }
+    
     
     @IBAction func shareButtonTapped (_ sender: UIButton) {
         
         sender.showAnimation {
-            
         }
         
         shareDelegate?.didTapShare(jokeText: jokeBody.text!)
-        
     }
+    
+    
     @IBAction func likeButtonTapped (_ sender: UIButton) {
         
         likeDelegate?.didTapLike(savedJoke: jokeBody.text!)
@@ -75,13 +69,12 @@ class JokeCell: UITableViewCell {
         sender.showAnimation {
         }
         
-        
     }
-    
     
 }
 
-//Extension to add shadows used in Sketch
+
+// Adding Sketch shadow properties.
 
 
 extension CALayer {
@@ -107,7 +100,7 @@ extension CALayer {
     }
 }
 
-// Tap animation extension
+// Button tap animation.
 
 extension UIView {
     func showAnimation(_ completionBlock: @escaping () -> Void) {

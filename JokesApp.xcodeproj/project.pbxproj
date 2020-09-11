@@ -74,24 +74,56 @@
 		C74EC8E725056D5300134E1E /* JokesApp */ = {
 			isa = PBXGroup;
 			children = (
+				C74EC8EE25056D5300134E1E /* Main.storyboard */,
+				C74F7689250BB5A600EBE2D5 /* Jokes Screen */,
+				C74F768A250BB5D700EBE2D5 /* Favorites Screen */,
+				C74F768B250BB5FE00EBE2D5 /* Settings Screen */,
+				C74F768C250BB62400EBE2D5 /* Add Joke Screen */,
+				C74EC8F125056D5800134E1E /* Assets.xcassets */,
 				C74EC8E825056D5300134E1E /* AppDelegate.swift */,
 				C74EC8EA25056D5300134E1E /* SceneDelegate.swift */,
-				C74EC8EE25056D5300134E1E /* Main.storyboard */,
-				C74EC8FC2505836200134E1E /* JokesVC.swift */,
-				C74EC90225058C3900134E1E /* Joke.swift */,
-				C74EC90425058D2100134E1E /* JokeList.swift */,
-				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
-				C7367E482509AC5F001DAE6D /* SettingsVC.swift */,
-				C74EC91025085B9D00134E1E /* AddJokeVC.swift */,
-				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
-				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
-				C74EC90C2508230E00134E1E /* FavoritesCell.swift */,
-				C74EC90D2508230E00134E1E /* FavoritesCell.xib */,
-				C74EC8F125056D5800134E1E /* Assets.xcassets */,
 				C74EC8F325056D5800134E1E /* LaunchScreen.storyboard */,
 				C74EC8F625056D5800134E1E /* Info.plist */,
 			);
 			path = JokesApp;
+			sourceTree = "<group>";
+		};
+		C74F7689250BB5A600EBE2D5 /* Jokes Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C74EC8FC2505836200134E1E /* JokesVC.swift */,
+				C74EC90225058C3900134E1E /* Joke.swift */,
+				C74EC90425058D2100134E1E /* JokeList.swift */,
+				C74EC9062506D7AE00134E1E /* JokeCell.swift */,
+				C74EC9072506D7AE00134E1E /* JokeCell.xib */,
+			);
+			path = "Jokes Screen";
+			sourceTree = "<group>";
+		};
+		C74F768A250BB5D700EBE2D5 /* Favorites Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C74EC90A2508140200134E1E /* FavoriteJokes.swift */,
+				C74EC90C2508230E00134E1E /* FavoritesCell.swift */,
+				C74EC90D2508230E00134E1E /* FavoritesCell.xib */,
+			);
+			path = "Favorites Screen";
+			sourceTree = "<group>";
+		};
+		C74F768B250BB5FE00EBE2D5 /* Settings Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C7367E482509AC5F001DAE6D /* SettingsVC.swift */,
+			);
+			path = "Settings Screen";
+			sourceTree = "<group>";
+		};
+		C74F768C250BB62400EBE2D5 /* Add Joke Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C74EC91025085B9D00134E1E /* AddJokeVC.swift */,
+			);
+			path = "Add Joke Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

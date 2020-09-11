@@ -10,18 +10,16 @@ import UIKit
 
 let defaults = UserDefaults.standard
 
-
 class FavoriteJokes: UIViewController {
     
-    
     @IBOutlet weak var favoritesTableView: UITableView!
-    
     @IBOutlet weak var addButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let likedJokesStorage = defaults.array(forKey: "likedJokesArray") as? [String] {
+        if let likedJokesStorage = defaults.array (forKey: "likedJokesArray") as? [String] {
             likedJokes = likedJokesStorage
         }
         
@@ -31,9 +29,9 @@ class FavoriteJokes: UIViewController {
         favoritesTableView.dataSource = self
         
         favoritesTableView.register(FavoritesCell.nib(), forCellReuseIdentifier: "FavoritesCell")
+        
         favoritesTableView.backgroundColor = .clear
         favoritesTableView.showsVerticalScrollIndicator = false
-        
         addButton.layer.cornerRadius = addButton.frame.height / 2
         addButton.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 5, blur: 8, spread: 0)
         
@@ -45,19 +43,13 @@ class FavoriteJokes: UIViewController {
     }
     
     
-    
-    
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        
         
         let addVC = storyboard?.instantiateViewController(withIdentifier: "addJokeScreen") as! AddJokeVC
         addVC.jokeDelegate = self
         present(addVC, animated: true, completion: nil)
-        
     }
-    
 }
-
 
 
 
@@ -66,17 +58,19 @@ extension FavoriteJokes: UITableViewDelegate, UITableViewDataSource {
         return likedJokes.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesCell
-        
         let myJokes = likedJokes[indexPath.row]
         cell.configureFav(with: myJokes)
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -90,27 +84,23 @@ extension FavoriteJokes: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// Adding and storing jokes added by user.
+
 extension FavoriteJokes: UserJokeDelegate {
     func saveButtonTapped(userJoke: String) {
         
         if userJoke.isEmpty == true {
             return
-        } else {
             
+        } else {
             likedJokes.append(userJoke)
             let indexPath = IndexPath(row: likedJokes.count - 1, section: 0)
             
             defaults.set(likedJokes, forKey: "likedJokesArray")
             
-            
             favoritesTableView.beginUpdates()
             favoritesTableView.insertRows(at: [indexPath], with: .automatic)
             favoritesTableView.endUpdates()
-            
         }
-        
     }
-    
-    
-    
 }

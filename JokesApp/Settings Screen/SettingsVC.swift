@@ -9,22 +9,21 @@
 import UIKit
 
 var isOffline = Bool()
-
-
- var newName = String()
+var newName = String()
 var newLastName = String()
 
 
 class SettingsVC: UIViewController {
-        
+    
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var lastNameView: UIView!
     @IBOutlet weak var offlineView: UIView!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-        
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +36,8 @@ class SettingsVC: UIViewController {
         
         lastNameTextField.attributedPlaceholder = NSAttributedString(string: "Last Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, .font: UIFont.italicSystemFont(ofSize: 17)])
         
-        // dismiss keyboard on tap
+        
+        // Dismissing keyboard on tap.
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -48,37 +48,33 @@ class SettingsVC: UIViewController {
     
     
     
-    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
         sender.showAnimation {
         }
         
+        let dismissVC = storyboard?.instantiateViewController(withIdentifier: "favoriteJokes") as! FavoriteJokes
+        present(dismissVC, animated: true, completion: nil)
+        
         newName = nameTextField.text ?? ""
         newLastName = lastNameTextField.text ?? ""
-                
+        
         let name = Notification.Name(rawValue: "newCharacterName")
         NotificationCenter.default.post(name: name, object: newName)
         
-//        let dismissVC = storyboard?.instantiateViewController(withIdentifier: "favoriteJokes") as! FavoriteJokes
-//               present(dismissVC, animated: true, completion: nil)
-        
-        view.endEditing(true)
     }
     
     
-    @IBAction func offlineSwitch(_ sender: UISwitch) {
     
+    @IBAction func checkSwitchPosition(_ sender: UISwitch) {
         
         if sender.isOn == true {
-            
             isOffline = true
             
         } else {
-           isOffline = false
+            isOffline = false
         }
     }
-    
 }
 
 
